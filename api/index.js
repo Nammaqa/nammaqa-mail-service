@@ -24,8 +24,8 @@ async function sendMail(body) {
   const transporter = createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.MAIL_USER || "",
-      pass: process.env.MAIL_PASS || ""
+      user: (process.env.MAIL_USER || "").trim(),
+      pass: (process.env.MAIL_PASS || "").replace(/\s+/g, "")
     }
   });
   try {
